@@ -1,0 +1,117 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="../css/custom/indexStyle.css" />
+
+    <title>Register</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Password Manager</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="clear"></div>
+
+    <div class="container-xl">
+        <div class="col-12 col-sm-12">
+          <div class="signup-form text-center">
+            <form action="/register" method="post">
+              <h2>Sign Up</h2>
+              <p>Please fill in this form to create an account!</p>
+              <div
+                class="text-danger text-center font-weight-bold"
+              >{{err}}</div>
+              <hr />
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  placeholder="Your Name"
+                  required="required"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  placeholder="Email"
+                  required="required"
+                  autocapitalize="none"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="tel"
+                  class="form-control"
+                  name="phone"
+                  placeholder="Phone"
+                  required="required"
+                  autocapitalize="none"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  placeholder="Password"
+                  required="required"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  name="confirm_password"
+                  placeholder="Confirm Password"
+                  required="required"
+                />
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+              </div>
+            </form>
+            <div class="hint-text">Already have an account?
+              <a href="/login">Login here</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+  <script src="../js/jquery-3.5.1.slim.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+</html>
