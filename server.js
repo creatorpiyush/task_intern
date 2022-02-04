@@ -22,7 +22,7 @@ app.use(express.static(__dirname + "/public"));
 app.set("view engine", "hbs");
 app.set("views", "./public/views");
 
-app.get("/", auth, (req, res) => {
+app.get("/", (req, res) => {
   res.status(200).render("index");
 });
 
