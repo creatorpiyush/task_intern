@@ -1,16 +1,98 @@
-<html lang="en">
+<html>
+
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{user.name}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="../css/custom/userStyle.css" />
+
+    <title>Password Manager | {{user_data.username}}</title>
+
   </head>
+
   <body>
-    {{#each user}}
-      <p>{{this.name}}</p>
-      <p>{{this.email}}</p>
-      <p>{{this.phone}}</p>
-    {{/each}}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Task</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="">Profile</a>
+          </li>
+        </ul>
+        <form
+          class="form-inline my-2 my-lg-0"
+          action="/user/logout?_method=DELETE"
+          method="post"
+        >
+          <input
+            class="btn btn-secondary btn-lg"
+            type="submit"
+            value="Logout"
+          />
+        </form>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="outer-wrap">
+        <div class="content">
+          <main class="main-area">
+            <section class="cards">
+              {{#each user}}
+                <article class="card">
+                  <div class="card-content">
+                    <h2>{{this.name}}</h2>
+                    <p>{{this.email}}</p>
+                    <p>{{this.phone}}</p>
+                  </div>
+                </article>
+              {{/each}}
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <footer class="mt-auto">
+      <div class="text-center p-3 bg-light text-dark">
+        Developed with ❤️ by
+        <a
+          href="https://piyushanand.in"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-decoration-none"
+        >Piyush Anand</a>
+      </div>
+    </footer>
+
+    <script src="../js/jquery-3.5.1.slim.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 
   </body>
+
 </html>

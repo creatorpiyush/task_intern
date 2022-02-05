@@ -36,15 +36,21 @@ app.post("/register", async (req, res) => {
     const { name, email, phone, password, confirm_password } = req.body;
 
     if (!(email && password && name && phone && confirm_password)) {
-      res.status(400).send("All input is required");
+      return res
+        .status(400)
+        .render("register", { err: "All fields are required" });
     }
 
     if (password !== confirm_password) {
-      res.status(400).send("Password and Confirm Password must match");
+      return res.status(400).render("register", {
+        err: "Password and Confirm Password must match",
+      });
     }
 
     if (password.length < 10) {
-      res.status(400).send("Password must be at least 10 characters long");
+      return res.status(400).render("register", {
+        err: "Password must be at least 10 characters long",
+      });
     }
 
     const oldUser = await User.findOne({ email });
@@ -88,7 +94,7 @@ app.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
     if (!(email && password)) {
-      res.status(400).send("All input is required");
+      return res.status(400).render("login", { err: "All input is required" });
     }
     const user = await User.findOne({ email });
 
@@ -106,7 +112,7 @@ app.post("/login", async (req, res) => {
       res.cookie("x-access-token", token);
       return res.status(200).redirect(`/allData`);
     } else {
-      return res.status(400).send("Invalid Credentials");
+      return res.status(400).render("login", { err: "Invalid Credentials" });
     }
   } catch (err) {
     console.log(err);
